@@ -35,6 +35,12 @@ class SPiD extends AbstractService
         }
     }
 
+    public function isValidScope($scope)
+    {
+        return true;
+    }
+
+
     /**
      * {@inheritdoc}
      */
@@ -87,5 +93,17 @@ class SPiD extends AbstractService
         $token->setExtraParams($data);
 
         return $token;
+    }
+
+    /**
+     * @param null $returnTo
+     * @return Uri
+     */
+    public function getLogoutUrl($returnTo = null) {
+        $returnTo = is_null($returnTo) ? \URL::current() : $returnTo;
+        $uri = new Uri($this->environment . 'logout');
+        $uri->addToQuery('client_id', $this->credentials->getConsumerId());
+        $uri->addToQuery('redirect_uri', $returnTo);
+        return $uri;
     }
 }
