@@ -18,6 +18,8 @@ use OAuth\Common\Http\Uri\UriInterface;
  */
 class SPiD extends AbstractService
 {
+    const SCOPE_MERCHANTS_WRITE = 'spid:merchants|write';
+
     private $environment;
 
     public function __construct(
