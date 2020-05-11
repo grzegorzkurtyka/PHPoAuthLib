@@ -18,7 +18,7 @@ use OAuth\Common\Http\Uri\UriInterface;
  */
 class SPiD extends AbstractService
 {
-    private $environment;
+    protected $environment;
 
     public function __construct(
         CredentialsInterface $credentials,
