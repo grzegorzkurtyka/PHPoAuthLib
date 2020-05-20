@@ -17,7 +17,7 @@ use OAuth\Common\Http\Uri\UriInterface;
  * @author Grzegorz Kurtyka <grzegorz.kurtka@schibsted.pl>
  * @link https://techdocs.spid.no
  */
-class SPiD2 extends SPiD
+class SchibstedAccount extends SPiD
 {
     protected $environment;
 
@@ -34,7 +34,7 @@ class SPiD2 extends SPiD
         parent::__construct($credentials, $httpClient, $storage, $scopes, $baseApiUri, true);
         $this->scopes[] = 'openid';
         $this->environment = config(
-            'oauth-5-laravel.consumers.SPiD2.environment',
+            'oauth-5-laravel.consumers.SchibstedAccount.environment',
             'https://identity-pre.schibsted.com/'
         );
         if (null === $baseApiUri) {
